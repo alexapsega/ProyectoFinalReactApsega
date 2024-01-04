@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Heading, CardBody, CardFooter } from '@chakra-ui/react'
+import { Card, Heading, Button, CardBody, CardFooter, Stack, Text } from '@chakra-ui/react'
 
 const Item = ({titulo, descripcion, precio}) => {
   return (

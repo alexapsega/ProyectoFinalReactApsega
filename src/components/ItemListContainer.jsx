@@ -1,7 +1,12 @@
 import React from 'react'
 import ItemList from './ItemList'
 
+
+
 const ItemListContainer = ({ greeting }) => {
+
+
+
 
   const productos = [
     { nombre: "Libro 1", descripcion: "Descripcion del Libro 1", precio: 3000},
@@ -9,6 +14,8 @@ const ItemListContainer = ({ greeting }) => {
     { nombre: "Libro 3", descripcion: "Descripcion del Libro 3", precio: 7000},
     { nombre: "Libro 4", descripcion: "Descripcion del Libro 4", precio: 10000},
   ]
+
+
 
 
   const mostrarProductos = new Promise((resolve, reject) => {
@@ -21,18 +28,21 @@ const ItemListContainer = ({ greeting }) => {
     }
   })
 
-  mostrarProductos
-    .then((resultado) =>{
-      console.log(resultado)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
   
-    return (
-    <div>{greeting}
-        <ItemList productos={productos} />
-    </div>
+  
+  mostrarProductos
+  .then((resultado) =>{
+    console.log(resultado)
+  })
+  .catch((error)=>{
+    console.log(error)
+  })
+  
+  
+  return (
+  <div>{greeting}
+    <ItemList productos={productos} />
+  </div>
   )
 }
 

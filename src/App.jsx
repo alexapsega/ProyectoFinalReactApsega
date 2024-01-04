@@ -4,9 +4,10 @@ import ItemListContainer from './components/ItemListContainer'
 
 const App = () => {
   return (
-    <div>
+  <div>
+      <p>Book E-commerce</p>
       <NavBar />
-      <ItemListContainer greeting={"Bienvenido al Book E.commerce"}/>
+      <ItemListContainer greeting={"Bienvenido al Book E.commerce"}/> 
     </div>
   )
 }
