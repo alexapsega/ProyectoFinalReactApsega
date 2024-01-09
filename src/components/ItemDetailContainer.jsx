@@ -1,9 +1,9 @@
 import React from 'react'
-import ItemList from './ItemList'
+import ItemDetail from './ItemDetail'
 
 
 
-const ItemListContainer = ({ greeting }) => {
+const ItemDetailContainer = ({ greeting }) => {
 
 
 

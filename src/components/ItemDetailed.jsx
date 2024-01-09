@@ -13,7 +13,7 @@ const Item = ({ titulo, descripcion, precio }) => {
         </CardBody>
         <CardFooter>
             <ButtonGroup spacing=''>
-              <Button onClick={alert('Aca te lleva al ItemDetailedList')}> Ver más detalles </Button>
+              <ItemCount />
             </ButtonGroup>
         </CardFooter>
     </Stack>

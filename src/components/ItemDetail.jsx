@@ -1,7 +1,7 @@
 import React from 'react'
-import ItemDetailed from './ItemDetailed'
+import Item from './Item'
 
-const ItemList = ({ productos }) => {
+const ItemDetail = ({ productos }) => {
   console.log(productos)
     return (
     <div>
