@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from './Item'
+import { Center, Wrap, WrapItem } from '@chakra-ui/react'
 
 
 const ItemList = ({ productos }) => {
@@ -8,12 +9,18 @@ const ItemList = ({ productos }) => {
         {
             productos.map((p)=>{
                 return (
-                    <Item
-                      key = {p.id}
-                      titulo = {p.titulo}
-                      precio = {p.precio}
-                      id={p.id}
-                    />
+                    <Wrap spacing='30px' justify='center'>
+                            <WrapItem>
+                                <Center>
+                                    <Item
+                                    key = {p.id}
+                                    titulo = {p.titulo}
+                                    precio = {p.precio}
+                                    id={p.id}
+                                    />
+                                </Center>
+                            </WrapItem>
+                    </Wrap>
                 )
             })
         }

@@ -41,7 +41,7 @@ const ItemListContainer = ({ greeting }) => {
   mostrarProductos
   .then((resultado) =>{
     console.log(resultado)
-    console.log(productos.id)
+    
   })
   .catch((error)=>{
     console.log(error)

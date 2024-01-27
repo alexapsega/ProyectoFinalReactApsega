@@ -1,14 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { collection, addDoc, getFirestore } from 'firebase/firestore'
+import { CartContext } from '../context/ShoppingCartContext.jsx'
 import { Input, Button, Text } from '@chakra-ui/react'
 
 const Form = () => {
-
-    const cart = [
-        {p: "Producto A"}
-        {p: "Producto B"}
-    ]
 
     const [nombre, setNombre] = useState("")
     const [email, setEmail] = useState("")
@@ -21,10 +17,10 @@ const Form = () => {
         addDoc(ordersCollection, order).then(({id}) =>
             setPurchaseId(id))
 
-        alert(Muchas gracias ${nombre}, nos contactaremos a ${email} para finalizar el proceso de compra)
+        alert(`Muchas gracias ${nombre}, nos contactaremos a ${email} para finalizar el proceso de compra``)
 
         
-        setEmail("") 
+        setEmail("")
         setNombre("")
     }
 
@@ -45,7 +41,7 @@ const Form = () => {
 
 
             <Text>
-                {`El ide de su compra es: ${purchaseId}`}
+                {`El id de su compra es: ${purchaseId}`}
             </Text>
         </div>
     )

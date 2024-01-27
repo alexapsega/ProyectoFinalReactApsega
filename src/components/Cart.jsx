@@ -1,8 +1,10 @@
 import React from 'react'
 import { useContext , useState } from 'react'
-import { CartContext } from '../context/ShoppingCartContext'
-import CartWidget from './CartWidget'
-import ItemCount from './ItemCount'
+import { Button } from '@chakra-ui/react'
+import { CartContext } from '../context/ShoppingCartContext.jsx'
+import CartWidget from './CartWidget.jsx'
+import ItemCount from './ItemCount.jsx'
+
 
 const Cart = () => {
   
@@ -14,7 +16,7 @@ const Cart = () => {
       
       { contador > 0 ? <h1> Hay {cantidad} libros en el carrito</h1> : <h2> No hay elementos en el carrito </h2> }
     
-    //** ACA PONGO UN BOTON CON onClick={() => setCart("Nuevo valor")} **/
+    <Button > Finalizar compra </Button>
 
     </div>
   )
