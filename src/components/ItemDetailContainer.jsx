@@ -1,31 +1,35 @@
 import React from 'react'
 import ItemDetail from './ItemDetail.jsx'
-import ItemList from './ItemList'
+import ItemList from './ItemList.jsx'
 import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 
 
 const ItemDetailContainer = () => {
-  
-  const { id } = useParams()
 
-  const productos = [
-    { id: 1, titulo: "Libro 1", descripcion: "Descripcion del Libro 1", precio: 3000, categoria: "A"},
-    { id: 2, titulo: "Libro 2", descripcion: "Descripcion del Libro 2", precio: 5000, categoria: "B"},
-    { id: 3, titulo: "Libro 3", descripcion: "Descripcion del Libro 3", precio: 7000, categoria: "C"},
-    { id:4, titulo: "Libro 4", descripcion: "Descripcion del Libro 4", precio: 10000, categoria: "B"},
-    { id:5, titulo: "Libro 5", descripcion: "Descripcion del Libro 5", precio: 8000, categoria: "C"},
-    { id:6, titulo: "Libro 6", descripcion: "Descripcion del Libro 6", precio: 2000, categoria: "A"},
-    { id:7, titulo: "Libro 7", descripcion: "Descripcion del Libro 7", precio: 4000, categoria: "A"},
-    { id:8, titulo: "Libro 8", descripcion: "Descripcion del Libro 8", precio: 1000, categoria: "B"},
-    { id:9, titulo: "Libro 9", descripcion: "Descripcion del Libro 9", precio: 20000, categoria: "C"},
-    { id:10, titulo: "Libro 10", descripcion: "Descripcion del Libro 10", precio: 6000, categoria: "A"},
-  ]
+  const [producto, setProducto] = useState([])
+  const { id } = useParams()
+  
+  console.log(id)
+
+  useEffect (() => {
+      const db = getFirestore()
+
+      const oneItem = doc(db,"libros",`${id}`)
+        getDoc(oneItem).then((snapshot)=>{
+          if(snapshot.exists()){
+            const doc = snapshot.data()
+            setProducto(doc)
+            }
+          })
+    }, [])
 
   const mostrarProductos = new Promise((resolve, reject) => {
-    if (productos.length > 0) {
+    if (producto.length > 0) {
         setTimeout(() =>{
-          resolve(productos)
+          resolve(producto)
         }, 3000)
     } else {
         reject("No se pudo encontrar el libro")
@@ -40,7 +44,7 @@ const ItemDetailContainer = () => {
       console.log(error)
     })
 
-  const productoFiltrado = productos.find((producto)=> producto.id == id)
+  const productoFiltrado = producto.find((producto)=> producto.id == id)
 
   return (
     <div>
