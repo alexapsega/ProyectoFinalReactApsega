@@ -23,6 +23,7 @@ const Form = () => {
 
         alert(Muchas gracias ${nombre}, nos contactaremos a ${email} para finalizar el proceso de compra)
 
+        
         setEmail("") 
         setNombre("")
     }
